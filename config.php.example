@@ -1,0 +1,9 @@
+<?php
+
+$database = array();
+
+// for SQLite
+
+$database['name'] = __DIR__ . '/data.sqlite3';
+
+// MySQL support might come soon

@@ -1,0 +1,17 @@
+<?php include __DIR__ . '/head.phtml'; ?>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Christmas Wishlists</h1>
+
+				<h2>Who are you?</h2>
+
+				<?php foreach($this->users as $user): ?>
+					<a class="btn btn-lg btn-default btn-space" href="/user/auth/<?php echo $user['id']; ?>"><?php echo $user['name']; ?></a>
+				<?php endforeach; ?>
+
+				<a href="/user/new" class="btn btn-md btn-info btn-space">Hey, I'm not here!</a>
+			</div>
+		</div>
+
+<?php include __DIR__ . '/foot.phtml'; ?>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php if(isset($this->title)) echo $this->title, ' | ';?>Christmas List</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.2/amelia/bootstrap.min.css">
+	<style>
+	.row.space {
+		margin-top: 30px;
+	}
+
+	td.purchased span {
+		visibility: hidden;
+	}
+
+	td.purchased:hover span {
+		visibility: visible;
+	}
+
+	th {
+		width: 20%;
+	}
+
+	.btn-space {
+		margin-top: 7px;
+	}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home">Christmas List</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="nav">
+				<ul class="nav navbar-nav">
+					<li<?php if(!isset($this->page) || $this->page == 'home') echo ' class="active"';?>><a href="/home">Home</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">

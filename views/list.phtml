@@ -1,0 +1,58 @@
+<?php include __DIR__ . '/head.phtml'; ?>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h1><?php echo $this->user->name; ?>'s Wishlist</h1>
+
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Price</th>
+								<th>Link</th>
+								<th>Purchased</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach($this->items as $item): ?>
+								<tr>
+									<td><?php echo $item->name; ?></td>
+									<td><?php echo $item->description; ?></td>
+									<td><?php echo $item->price; ?></td>
+									<td>
+										<?php if(!filter_var($item->link, FILTER_VALIDATE_URL)): ?>
+											<?php echo $item->link; ?>
+										<?php else: ?>
+											<a href="<?php echo $item->link; ?>">[ link ]</a>
+										<?php endif; ?>
+									</td>
+									<td class="purchased"><span><?php echo ($item->purchased == 0) ? 'No – <a href="/user/' . $item->user()->find_one()->id . '/' . $item->id . '">I purchased this</a>' : 'Yes' . (($item->purchased == $this->authed->id) ? ', by you!' : '');?></span></td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
+
+				<form class="form-horizontal" role="form" method="POST" action="/item/<?php echo $this->user->id; ?>/nol">
+					<div class="form-group">
+						<div class="col-sm-6">
+							<input class="form-control" type="text" id="name" name="name" placeholder="Item Name">
+						</div>
+
+						<div class="col-sm-6">
+							<input class="form-control" type="text" id="description" name="description" placeholder="Item Description">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-xs-12">
+							<input type="submit" class="btn btn-default col-xs-12" value="Go!">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+<?php include __DIR__ . '/foot.phtml'; ?>

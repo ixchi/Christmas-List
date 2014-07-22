@@ -1,0 +1,9 @@
+{
+    "require": {
+        "j4mie/paris": "1.*",
+        "klein/klein": "*"
+    },
+    "require-dev": {
+    	"fzaninotto/faker": "*"
+    }
+}
